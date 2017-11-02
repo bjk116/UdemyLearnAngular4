@@ -1,0 +1,13 @@
+<div class="container">
+  <div class = "row">
+    <button class="btn btn-primary" *ngIf="display; else revealText" (click)="changeDisplay()">Hide Text</button>
+    <ng-template #revealText>
+      <button class="btn btn-warning" (click)="changeDisplay()">Display text</button>
+    </ng-template>
+    <p *ngIf="display">Whoo, hidden text!</p>
+    <p *ngFor="let click of clicks; let i = index" 
+      [ngClass]="{ lightblue: i>=5}"
+      [ngStyle]="{color: i>=5 ? 'white' : 'black'}"
+      >{{ click }}</p>
+  </div>
+</div>
